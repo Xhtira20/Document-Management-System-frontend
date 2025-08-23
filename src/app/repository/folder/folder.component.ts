@@ -157,13 +157,22 @@ export class FolderComponent implements OnInit {
       .subscribe((paramId) => {
         this.isLoading = true;
         this.id = paramId.get('id');
-        this.directoryserverce
-          .getFolderContent(this.id)
-          .subscribe((data: any) => {
+        this.directoryserverce.getFolderContent(this.id).subscribe({
+          next: (data: any) => {
             this.data = data;
             this.isLoading = false;
             this.dataempty = this.directoryserverce.isArrayEmptyEvery(data);
-          });
+          },
+          error: (error) => {
+            if (error.status === 404) {
+              this.router.navigate(['/profile']);
+            } else {
+              this.isLoading = false;
+              alert('error! Try later');
+            }
+          },
+        });
+
         this.local.set('folder', this.id);
       });
     this.directoryserverce.GetnavigationPane().subscribe((data: any) => {
