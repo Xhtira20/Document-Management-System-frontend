@@ -315,10 +315,10 @@ export class FolderComponent implements OnInit {
     }
   }
   showContextMenubyleftClickfolders(event: MouseEvent) {
-    this.contextMenufolders.show(event); // Show the context menu at the click event coordinatese
+    this.contextMenufolders.show(event);
   }
   showContextMenubyleftClickfiles(event: MouseEvent) {
-    this.contextMenufiles.show(event); // Show the context menu at the click event coordinatese
+    this.contextMenufiles.show(event);
   }
   addFileToFavorite(id: string) {
     this.directoryserverce.addFilertofavorite(id).subscribe({
@@ -342,6 +342,7 @@ export class FolderComponent implements OnInit {
     });
   }
 
+// anvigation folder data to select the destination folder
   expandedNodes = new Set<string>();
   selectedNodeId: string | null = null;
 
