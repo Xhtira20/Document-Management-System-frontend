@@ -146,12 +146,14 @@ export class FolderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //check if the local storage variable exist
     if (this.local.get('show_grid') == null) {
       this.local.set('show_grid', 'true');
     }
     this.show_grid = this.local.get('show_grid');
     this.primengConfig.ripple = true;
 
+    //Get data throw he param
     this.activatedRoute.paramMap
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((paramId) => {
@@ -175,6 +177,7 @@ export class FolderComponent implements OnInit {
 
         this.local.set('folder', this.id);
       });
+    // Get navigation pane data
     this.directoryserverce.GetnavigationPane().subscribe((data: any) => {
       this.tree = data;
     });
