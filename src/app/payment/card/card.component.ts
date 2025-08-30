@@ -27,6 +27,7 @@ export class CardComponent {
     this.invokeStripe();
   }
   makePayment(amount: any) {
+    /*handel payments*/
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: this.stripeAPIKey,
       locale: 'auto',
@@ -46,7 +47,7 @@ export class CardComponent {
         });
       },
     });
-
+    // Open Stripe payment popup with product details
     paymentHandler.open({
       name: 'ItSolutionStuff.com',
       description: '3 widgets',
@@ -55,12 +56,14 @@ export class CardComponent {
   }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
-      const script = window.document.createElement('script');
+      const script = window.document.createElement('script');// Create script tag
 
       script.id = 'stripe-script';
       script.type = 'text/javascript';
       script.src = 'https://checkout.stripe.com/checkout.js';
       script.onload = () => {
+        // When Stripe script loads, configure a default payment handler
+
         this.paymentHandler = (<any>window).StripeCheckout.configure({
           key: this.stripeAPIKey,
           locale: 'auto',
@@ -69,7 +72,7 @@ export class CardComponent {
           },
         });
       };
-
+      // Append script to page
       window.document.body.appendChild(script);
     }
   }
