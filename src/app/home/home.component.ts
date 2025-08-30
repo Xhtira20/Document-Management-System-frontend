@@ -100,13 +100,13 @@ export class HomeComponent {
       case ModalDismissReasons.BACKDROP_CLICK:
         return 'by clicking on a backdrop';
       default:
-        return `with: ${reason}`;
+        return `with: ${reason}`; // Closed for another reason (custom message)
     }
   }
   reloadChild() {
-    this.showChild = false;
+    this.showChild = false;  // Temporarily remove the child component
     setTimeout(() => {
-      this.showChild = true;
+      this.showChild = true; // Add the child component back after 0ms
     }, 0);
   }
   createFolder(name: any): void {
@@ -161,7 +161,7 @@ export class HomeComponent {
   }
 
   resetDiv() {
-    this.showSpinner();
+    this.showSpinner(); // Show spinner animation
     const successfull_message = document.getElementById(
       'successfull-message'
     ) as HTMLElement;
@@ -175,7 +175,7 @@ export class HomeComponent {
       'error-name-message'
     ) as HTMLElement;
     if (successfull_message && loading_message && error_message) {
-      loading_message.style.display = 'block';
+      loading_message.style.display = 'block'; // Show loading message
       successfull_message.style.display = 'none';
       error_message.style.display = 'none';
       error_name_message.style.display = 'none';
