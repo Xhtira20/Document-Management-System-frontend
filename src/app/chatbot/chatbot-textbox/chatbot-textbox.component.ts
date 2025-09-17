@@ -85,6 +85,11 @@ export class ChatbotTextboxComponent implements OnInit, OnDestroy {
             role: 'assistant',
             content: res.response,
           });
+        } else {
+                  this.listOfMessages.push({
+          role: 'assistant',
+          content: this.errorMessage,
+        });
         }
         if (res.reload == true) this.triggerParent.emit();
       },
