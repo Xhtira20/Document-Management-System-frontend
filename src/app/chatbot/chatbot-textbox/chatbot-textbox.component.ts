@@ -42,7 +42,7 @@ export class ChatbotTextboxComponent implements OnInit, OnDestroy {
 
   readonly welcomeMessage: string =
     "Hello I'm Manu your virtual assistant. How can I help you?";
-  readonly errorMessage: string = 'Something went wront. Please try later';
+  readonly errorMessage: string = 'Something went wrong. Please try later';
   inputText: string | undefined;
   waitingResponse: boolean = false;
   errorResponse: boolean = false;
