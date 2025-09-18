@@ -91,6 +91,7 @@ export class ChatbotTextboxComponent implements OnInit, OnDestroy {
           content: this.errorMessage,
         });
         }
+        //reload the folder component
         if (res.reload == true) this.triggerParent.emit();
       },
       error: (err: any) => {
@@ -100,6 +101,7 @@ export class ChatbotTextboxComponent implements OnInit, OnDestroy {
           role: 'assistant',
           content: this.errorMessage,
         });
+        //reload the folder component
         if (err.reload == true) this.triggerParent.emit();
       },
     });
