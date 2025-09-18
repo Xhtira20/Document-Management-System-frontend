@@ -85,7 +85,7 @@ export class ChatbotTextboxComponent implements OnInit, OnDestroy {
             role: 'assistant',
             content: res.response,
           });
-        } else {
+        } else { // push the error message, without an error from the api
                   this.listOfMessages.push({
           role: 'assistant',
           content: this.errorMessage,
